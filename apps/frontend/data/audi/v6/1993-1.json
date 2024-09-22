@@ -1,0 +1,11 @@
+{
+  "vehicleType": 1,
+  "price": "R$ 10.511,00",
+  "brand": "Audi",
+  "model": "100 2.8 V6",
+  "modelYear": 1993,
+  "fuel": "Gasolina",
+  "codeFipe": "008030-6",
+  "referenceMonth": "setembro de 2024",
+  "fuelAcronym": "G"
+}
