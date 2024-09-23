@@ -25,7 +25,7 @@
 ## 🧐 Como executar esse projeto? 🧐
 Faça o clone da aplicação com:
 ```
-  git clone git@github.com:AlexandreConte/carsApp
+  git clone https://github.com/AlexandreConte/carsApp.git
 ```
 
 Acesse a pasta raiz do repositório:
