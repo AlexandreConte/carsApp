@@ -1,4 +1,4 @@
-# Carros
+# Carros App
 
 ## ⚙️ Tecnologias utilizadas ⚙️
 - Aplicação fullstack com Turbo Repo para executar o frontend e o backend simultaneamente
@@ -8,12 +8,16 @@
 - Frontend desenvolvido com Next.JS
 - Tabler Icons para ícones do Frontend
 - TailwindCSS para estilização
-- ChartJs para construção dos gráficos no Frontend
+- ChartJS para construção dos gráficos no Frontend
 
 ## 🧑‍💻 Backend 🧑‍💻
-- Backend desenvolvido com Express para criação de rotas
+- Backend desenvolvido com Express para criação das rotas
 
-## Ferramentas necessárias e recomendadas para executar o projeto
+## 📐 Regras seguidas para o projeto 📐
+- A Aplicação foi divida entre Frontend e Backend
+- O frontend consumiu as rotas do Backend próprio
+
+## ⚙️ Ferramentas necessárias e recomendadas para executar o projeto ⚙️
 - Node v20.17.0
 - NPM v10.8.3
 - Yarn v1.22.22
@@ -24,14 +28,24 @@ Faça o clone da aplicação com:
   git clone git@github.com:AlexandreConte/carsApp
 ```
 
+Acesse a pasta raiz do repositório:
+```
+  cd carsApp
+```
+
 Abra o terminal na pasta carsApp e instale as dependências das aplicações:
 ```
   yarn
 ```
 
+Faça o build do frontend, na pasta raiz do projeto:
+```
+  yarn build
+```
+
 Agora basta executar o comando para iniciar a aplicação:
 ```
-  yarn dev
+  yarn run dev
 ```
 
 Acesse em seu navegador o endereço
@@ -42,15 +56,19 @@ Acesse em seu navegador o endereço
 ## Telas da aplicação
 
 ### Tela inicial
-![Início](image.png)
-![Início imagem 2](image-1.png)
+![Tela Inicial](tela-inicial.png)
 
-Clicando em uma das opções de carro ocorre o acesso para a próxima página:
+Ao clicar em uma das opções de carro ocorre o acesso para a próxima página:
+### Tela de Modelos dos carros
+![Modelos de carro da Ferrari](ferrari-models.png)
 
-![Página de modelos](image-2.png)
-![Página de modelos imagem 2](image-3.png)
+Ao clicar em um modelo, a aplicação acessa os dados do modelo:
+### Tela de informações sobre o modelo escolhido
+Consta com as seguintes informaçõesm sobre o modelo escolhido:
+- Ano do modelo
+- Preço
+- Tipo de combustível utilizado no modelo
 
-Clicando em um modelo, acessa os dados do modelo:
-![Página de dados de um modelo](image-4.png)
-![Página de dados de um modelo imagem 2](image-5.png)
-![Página de dados de um modelo imagem 3](image-6.png)
+Os dados são processados e utilizados no gráfico que mostra a variação de preço do modelo ao longo dos anos.
+
+![Informações do carro Ferrari 456 GT](ferrari-456-gt.png)

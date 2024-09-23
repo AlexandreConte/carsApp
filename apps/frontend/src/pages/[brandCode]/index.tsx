@@ -11,15 +11,14 @@ import imageSlogan2 from "../../../public/slogan2.jpg"
 import GridContainer from "@/components/shared/template/GridContainer"
 import Footer from "@/components/shared/template/Footer"
 import Error from "@/components/shared/template/Error"
+import BackendUrls from "@/data/BackendUrl"
+import Dictionary from "@/data/Dictionary"
 
 export default function CarModels() {
-  const url = `http://localhost:8080`
 
   const [cars, setCars] = useState<CarInterface[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
-
-  const dict = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
   function renderCarsByFirstLetter(firstLetter: string) {
     const carsWithTheLetter = cars.filter(car => car.name.startsWith(firstLetter))
@@ -53,7 +52,7 @@ export default function CarModels() {
 
   async function fetchModelsFromBrand(brandCode: number) {
     try {
-      const data = await fetch(`${url}/brands/${brandCode}`)
+      const data = await fetch(BackendUrls.models(brandCode))
       const json = await data.json()
       setCars(json)
     } catch (error) {
@@ -76,18 +75,22 @@ export default function CarModels() {
         image={imageSlogan2}
       />
       <Container>
-        {isLoading ? (
-          <Loading />
-        ) : error ? (
-          <Error
-            message="Ops! Erro ao carregar os dados"
-          />
-        ) : (
-          <GridContainer>
-            {cars.length > 0 && dict.map((letter) => (
-              renderCarsByFirstLetter(letter)))}
-          </GridContainer>
-        )}
+        {
+          isLoading ? (
+            <Loading />
+          ) : error ? (
+            <Error
+              message="Ops! Erro ao carregar os dados"
+            />
+          ) : (
+            <GridContainer>
+              {
+                cars.length > 0 && Dictionary.lettersAndNumbers.map((dictItem) => (
+                  renderCarsByFirstLetter(dictItem)))
+              }
+            </GridContainer>
+          )
+        }
       </Container>
       <Footer />
     </Page>

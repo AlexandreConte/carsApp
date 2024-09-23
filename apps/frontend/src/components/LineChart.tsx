@@ -26,13 +26,11 @@ export default function LineChart(props: LineChartProps) {
     datasets: [
       {
         label: 'Preço',
-        data: props.data.map((d: Data) => +d.price.replace('R$', '').trim().replace('.', '').replace(',', '.')).reverse(),
+        data: props.data.map((d: Data) => +(d.price.replace('R$', '').trim().replaceAll('.', '').split(',')[0])).reverse(),
         borderColor: "white",
-        backgroundColor: "white",
         responsive: true,
       },
     ],
-
   }
 
   return (
@@ -42,7 +40,7 @@ export default function LineChart(props: LineChartProps) {
         data={data}
         width={innerWidth < 400 ? 200 : innerWidth < 640 ? 400 : innerWidth < 1024 ? 768 : 1024}
         height={innerHeight * 0.8}
-        className='bg-blue-950 px-2 py-4 rounded-lg my-12 mx-auto'
+        className='bg-blue-950 py-4 rounded-lg my-12 mx-auto'
       />
     </div>
   )

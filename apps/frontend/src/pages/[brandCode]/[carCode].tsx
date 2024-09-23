@@ -10,6 +10,7 @@ import Footer from "@/components/shared/template/Footer";
 import Loading from "@/components/Loading";
 import Error from "@/components/shared/template/Error";
 import CarInfoComponent from "@/components/CarInfoComponent";
+import BackendUrls from "@/data/BackendUrl";
 
 export default function CarPage() {
 
@@ -22,7 +23,7 @@ export default function CarPage() {
 
   async function fetchCarInfo() {
     try {
-      const response = await fetch(`http://localhost:8080/brands/${brandCode}/model/${carCode}`)
+      const response = await fetch(BackendUrls.modelInfo(brandCode, carCode))
       const json = await response.json()
       setCarInfo(json)
     } catch (error) {
@@ -52,11 +53,11 @@ export default function CarPage() {
           {isLoading ? (
             <Loading />
           ) : error ? (
-            <Error 
+            <Error
               message="Ops! Erro ao carregar os dados"
             />
           ) : (
-            <CarInfoComponent 
+            <CarInfoComponent
               carInfo={carInfo}
             />
           )}
